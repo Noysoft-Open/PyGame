@@ -5,8 +5,9 @@ class Game:
 
     def __init__(self):
         pygame.init()
-        pygame.display.set_caption("Game 1")
-        self.win = pygame.display.set_mode((500, 500))
+        self.w_width = 1000
+        self.w_height = 500
+        self.win = None;
         self.running = True
         self.x_pos = 0
         self.y_pos = 0
@@ -16,12 +17,14 @@ class Game:
 
     def character(self):
         self.x_pos = 50
-        self.y_pos = 50
+        self.y_pos = 400
         self.rec_width = 40
         self.rec_height = 60
         self.velocity = 10
 
     def setvar(self):
+        pygame.display.set_caption("Game 1")
+        self.win = pygame.display.set_mode((self.w_width, self.w_height))
         self.character()
 
     def keyevents(self):
@@ -39,10 +42,10 @@ class Game:
             self.y_pos += self.velocity
 
     def draw(self):
-        self.win.fill((0, 0, 0))
+        self.win.fill((1, 10, 200))
         pygame.draw.rect(
             self.win,
-            (255, 0, 0),
+            (255, 255, 255),
             (
                 self.x_pos,
                 self.y_pos,
